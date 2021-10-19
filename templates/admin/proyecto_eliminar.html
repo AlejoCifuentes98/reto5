@@ -1,0 +1,39 @@
+{% extends 'base_admin.html' %}
+
+{% block contenido %}
+<section class="content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-8 ">
+                <!-- Default box -->
+                <div class="card">
+
+                    <div class="card-body">
+                        <div class="justify-content-center">
+                            <form action="" method="post">
+
+                                {% csrf_token %}
+                                <h3>¿ Desea eliminar el proyecto: <span> <b> {{ proyecto.titulo }} </b></span>?</h3>
+                                <div class="card-footer">
+                                    <div class="row ">
+
+                                        <div class="col-12">
+                                            <a href="{% url 'inicio_admin' %}" class="btn btn-secondary">Cancel</a>
+                                            <input type="submit" value="Si, eliminar"
+                                                class="btn btn-danger  float-right swalDefaultSuccess">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.card-body -->
+
+                        <!-- /.card-footer-->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+        </div>
+</section>
+{% endblock contenido %}

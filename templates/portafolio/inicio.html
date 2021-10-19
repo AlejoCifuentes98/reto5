@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<header>
+  <div class="container" id="cabeza">
+    <div class="row">
+      <div class="col  col-xs-6 col-sm-5  ">
+        <img src="{% static 'img/logo.png' %}" alt="" class="pt-5">
+      </div>
+      <div class="col col-xs-6 col-sm-7">
+        <h1>Tecnologo en Analisis y desarrollo de sistemas de información</h1>
+        <br>
+        <p>Aprendiz Senaen proceso de certificación como Tecnólogoen Análisisy Desarrollo de Sistemas de información,
+          además,técnico en sistemas con capacidades eficientes para la aplicación de habilidades, destrezas, valores
+          y comportamientos sobre actividades productivas relacionadas con el ensamblaje, mantenimiento,
+          actualización, instalación y configuración de computadores, mantenimiento preventivo de Software y Hardware,
+          configuración e instalación de Redes LAN, manejo de software ofimático, manejo de Tics y conocimientos
+          básicos en programación de páginas Web con HTML, con amplia experiencia en atención al cliente; seis meses
+          de practica como Aprendiz Sena, más3 meses de experiencia laboral en la Cámara de Comercio del Cauca en el
+          cargo de Auxiliar de Registro II temporal. Persona íntegra, responsable, con apertura al aprendizaje,
+          capacidad para adaptarme y trabajar en equipo dando respuesta clara, oportuna y eficaz a los requerimientos
+          propios del trabajo y del cliente.</p>
+
+        <button type="button" class="btn boton">Mis
+          proyectos <i class="fas fa-angle-down"></i></button>
+
+      </div>
+
+
+    </div>
+  </div>
+</header>
+<section id="seccion2">
+  <div class="container-fluid" id="nvr2">
+
+    <div class="row">
+      <div class="col ">
+        <h1>Mis proyectos</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="container ">
+
+    <div class="row cards ">
+      {% for card in cards %}
+      <div class="col ">
+        <div class="card text-center ">
+          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+            <img src="/media/{{ card.imagen }}" width="210px" height="150px" />
+            <a href="#!">
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+            </a>
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title">{{ card.titulo }}</h5>
+            <p class="card-text">
+              {{card.descripcion}}
+            </p>
+
+            <a href="{% url 'detalles' id_proyecto=card.id %}" type="button" class="btn ver">Ver <i
+                class="fas fa-eye"></i></a>
+          </div>
+          <div class="card-footer">{{card.fecha_creacion}}</div>
+        </div>
+
+      </div>
+      {% endfor %}
+
+    </div>
+
+
+  </div>
+  </div>
+
+
+</section>
+{% endblock contenido %}
